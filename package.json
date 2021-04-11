@@ -8,11 +8,13 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "heroku-postbuild": "ng build --prod",
+   
     "dev:ssr": "ng run SpaceLaunch:serve-ssr",
-    "serve:ssr": "node dist/SpaceLaunch/server/main.js",
+    
     "build:ssr": "ng build --prod && ng run SpaceLaunch:server:production",
-    "prerender": "ng run SpaceLaunch:prerender"
+    "prerender": "ng run SpaceLaunch:prerender",
+    "start:heroku":"node dist/SpaceLaunch/server/main.js",
+    "postinstall":"npm run build:ssr" 
   },
   "private": true,
   "dependencies": {
