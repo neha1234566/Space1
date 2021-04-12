@@ -3,16 +3,17 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
-    "build": "ng build",
+    "start": "ng serve",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "dev:ssr": "ng run SpaceLaunch:serve-ssr",
-    "build:ssr": "ng build --prod && ng run SpaceLaunch:server:production",
-    "prerender": "ng run SpaceLaunch:prerender",
-    "start:heroku": "node dist/SpaceLaunch/server/main.js",
-    "postinstall": "npm run build:ssr"
+    "dev:ssr": "ng run SpaceXLaunch:serve-ssr",
+    "serve:ssr": "node dist/SpaceXLaunch/server/main.js",
+    "build:ssr": "ng build --prod && ng run SpaceXLaunch:server:production",
+    "prerender": "ng run SpaceXLaunch:prerender",
+    "start:heroku":"node dist/SpaceXLaunch/server/main.js",
+    "postinstall":"npm run build:ssr" 
   },
   "private": true,
   "dependencies": {
