@@ -73,7 +73,7 @@ export class LaunchComponent implements OnInit {
     });
   }
 
-  filter_land(event: { target: { textContent: string; }; }) {
+  filter_land(event:any) {
     this.landstatus = event.target.textContent.toLowerCase();
 
     if (this.launchStatus != "" && this.landstatus != "" && this.year == "") {
