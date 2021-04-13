@@ -13,7 +13,7 @@ import { AppSettingsService } from "../app-settings.service";
 export class LaunchComponent implements OnInit {
 
   launches: any;
-  launchYear :any= [];
+  launchYear :any = [];
   uniqueLaunchYear:any = [];
   index = 0;
   launchesCount = 0;
@@ -24,22 +24,16 @@ export class LaunchComponent implements OnInit {
   constructor(
     @Inject(PLATFORM_ID) private platformId: object,
     private router: Router,
-    private spacesXService:SpaceServeService,
     private location: Location,
+    private spacesXService: SpaceServeService,
     private title: Title,
-    private meta: Meta,
-    public appSettings:AppSettingsService,
+    private meta: Meta
   ) {
     if (isPlatformBrowser(this.platformId)) {
-      const currentYear=new Date().getFullYear();
-      for(let i=2006;i<=currentYear;i++)
-      {
-          this.launchYear.push(i);
-      }
+      this.getMethod();
     }
   }
   ngOnInit() {
-    this.getMethod();
     this.title.setTitle("spacesX launches");
     this.meta.addTag({ keywords: "angular8, ssr, single page application" });
     this.meta.addTag({
@@ -68,7 +62,7 @@ export class LaunchComponent implements OnInit {
     });
   }
 
-  filterLaunch(event: any) {
+  filterLaunch(event:any) {
     this.launchStatus = event.target.textContent.toLowerCase();
     this.router.navigate([""], {
       queryParams: { limit: 100, launch_status: this.launchStatus },
@@ -79,13 +73,13 @@ export class LaunchComponent implements OnInit {
     });
   }
 
-  filter_land(event:any) {
+  filter_land(event: { target: { textContent: string; }; }) {
     this.landstatus = event.target.textContent.toLowerCase();
 
     if (this.launchStatus != "" && this.landstatus != "" && this.year == "") {
       this.spacesXService
         .getLaunchLand(this.launchStatus, this.landstatus)
-        .subscribe((data)=> {
+        .subscribe((data) => {
           this.launches = data;
           this.launchesCount = data.length;
           this.router.navigate([""], {
@@ -124,10 +118,10 @@ export class LaunchComponent implements OnInit {
           this.launchesCount = data.length;
           return;
         });
-    } 
+    }
   }
 
-  filterYear(year:any) {
+  filterYear(year: string) {
     this.year = year;
     this.router.navigate([""], {
       queryParams: { limit: 100, year: this.year },

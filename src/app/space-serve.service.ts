@@ -8,26 +8,26 @@ import { Observable } from "rxjs";
 export class SpaceServeService {
   Url = "https://api.spacexdata.com/v3/launches?";
 
-  constructor(private http: HttpClient) {}
+  constructor(private Http: HttpClient) {}
 
   getAllLaunches(): Observable<any> {
-    return this.http.get(this.Url);
+    return this.Http.get(this.Url);
   }
   // https://api.spacexdata.com/v3/launches?launch_success=true
   getLaunches(param: string): Observable<any> {
-    return this.http.get(this.Url + "launch_success=" + param);
+    return this.Http.get(this.Url + "launch_success=" + param);
   }
 
   getLaunches_Land(param: string): Observable<any> {
-    return this.http.get(this.Url + "land_success=" + param);
+    return this.Http.get(this.Url + "land_success=" + param);
   }
 
   getYear(param: string): Observable<any> {
-    return this.http.get(this.Url + "launch_year=" + param);
+    return this.Http.get(this.Url + "launch_year=" + param);
   }
 
   getAll(launchYear: string, launchSuccess: string, landSuccess: string): Observable<any> {
-    return this.http.get(
+    return this.Http.get(
       this.Url +
         "launch_year=" +
         launchYear +
@@ -39,7 +39,7 @@ export class SpaceServeService {
   }
 
   getLaunchLand(launchSuccess: string, landSuccess: string): Observable<any> {
-    return this.http.get(
+    return this.Http.get(
       this.Url +
         "limit=100" +
         "&launch_success=" +
