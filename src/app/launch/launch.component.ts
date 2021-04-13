@@ -29,10 +29,15 @@ export class LaunchComponent implements OnInit {
     private meta: Meta
   ) {
     if (isPlatformBrowser(this.platformId)) {
-      this.getMethod();
+      const currentYear=new Date().getFullYear();
+      for(let i=2006;i<=currentYear;i++)
+      {
+          this.launchYear.push(i);
+      }
     }
   }
   ngOnInit() {
+    this.getMethod();
     this.title.setTitle("spacesX launches");
     this.meta.addTag({ keywords: "angular8, ssr, single page application" });
     this.meta.addTag({
