@@ -84,8 +84,8 @@
         </h4>
       </div>
     </div>
-    <h1 *ngIf="launchesCount == 0" style="margin-left: 40%">
-      No Record Found !!!
-    </h1>
+  
+      <p class="errorMessage" *ngIf="uniqueLaunchYear==null || uniqueLaunchYear.length==0">No Record Found</p>
+ 
   </div>
 </div>

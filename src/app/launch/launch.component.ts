@@ -26,7 +26,8 @@ export class LaunchComponent implements OnInit {
     private spacesXService:SpaceServeService,
     private location: Location,
     private title: Title,
-    private meta: Meta
+    private meta: Meta,
+    
   ) {
     if (isPlatformBrowser(this.platformId)) {
       const currentYear=new Date().getFullYear();
