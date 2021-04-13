@@ -6,7 +6,7 @@
     <hr class="horizontal-line" />
     <div class="left-flex-container">
       <div
-        *ngFor="let year of uniqueLaunchYear; let i = index"
+        *ngFor="let year of launchYear; let i = index"
         class="launch-year"
       >
         <div (click)="filterYear(year)" class="year-btn">
@@ -84,7 +84,7 @@
         </h4>
       </div>
     </div>
-    <p class="errorMessage" *ngIf="!appSettings.isLoaderDisplaying && (uniqueLaunchYear==null || uniqueLaunchYear.length==0)">No Record Found</p>
+    <p class="errorMessage" *ngIf="!appSettings.isLoaderDisplaying && (launchYear==null || launchYear.length==0)">No Record Found</p>
 
  
   </div>
