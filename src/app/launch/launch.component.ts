@@ -4,6 +4,7 @@ import { Location } from "@angular/common";
 import { Router } from "@angular/router";
 import { Meta, Title } from "@angular/platform-browser";
 import { SpaceServeService } from "../space-serve.service";
+import { AppSettingsService } from "../app-settings.service";
 @Component({
   selector: 'app-launch',
   templateUrl: './launch.component.html',
@@ -27,7 +28,7 @@ export class LaunchComponent implements OnInit {
     private location: Location,
     private title: Title,
     private meta: Meta,
-    
+    public appSettings:AppSettingsService,
   ) {
     if (isPlatformBrowser(this.platformId)) {
       const currentYear=new Date().getFullYear();

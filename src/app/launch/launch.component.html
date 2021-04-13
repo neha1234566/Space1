@@ -84,8 +84,8 @@
         </h4>
       </div>
     </div>
-  
-      <p class="errorMessage" *ngIf="uniqueLaunchYear==null || uniqueLaunchYear.length==0">No Record Found</p>
+    <p class="errorMessage" *ngIf="!appSettings.isLoaderDisplaying && (uniqueLaunchYear==null || uniqueLaunchYear.length==0)">No Record Found</p>
+
  
   </div>
 </div>
